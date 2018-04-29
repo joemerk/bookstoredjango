@@ -22,7 +22,7 @@
         <h3>Authors</h3>
         <ul>
         {% for a in authors %}
-            <li {% if author.slug == a.slug %}class="selected"{% endif %}>
+           <li {{ a.slug }} {% if author.slug == a.slug %}class="selected"{% endif %}>
                 <a href="{{ a.get_absolute_url }}">{{ a.slug }}</a>
             </li>
         {% endfor %}
