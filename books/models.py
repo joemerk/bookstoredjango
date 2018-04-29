@@ -10,6 +10,9 @@ class Author(models.Model):
     def __str__(self):
         return '%s %s' % (self.first_name, self.last_name)
 
+    def get_absolute_url(self):
+        return reverse('authors:book_list_by_author', args=[self.slug])
+
 class Genre(models.Model):
     genre = models.CharField(max_length = 50)
     slug = models.SlugField(max_length = 50, db_index = True, unique = True)

@@ -18,6 +18,16 @@
             </li>
         {% endfor %}
         </ul>
+
+        <h3>Authors</h3>
+        <ul>
+        {% for a in authors %}
+            <li {% if author.slug == a.slug %}class="selected"{% endif %}>
+                <a href="{{ a.get_absolute_url }}">{{ a.slug }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+
     </div>
     <div id="main" class="book-list">
         <h1>{% if genre %}{{ genre.genre }}{% else %}Books{% endif %}</h1>
