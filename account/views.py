@@ -8,7 +8,12 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            user.refresh_from_db()
+            user.profile.address = form.cleaned_data.get('address')
+            user.profile.city = form.cleaned_data.get('city')
+            user.profile.postcode = form.cleaned_data.get('postcode')
+            user.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
