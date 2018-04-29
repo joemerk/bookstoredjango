@@ -89,10 +89,10 @@ WSGI_APPLICATION = 'mystore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'c1728385',
-        'USER': 'c1728385',
-        'PASSWORD': 'ngmjEk2NDuY6',
-        'HOST': 'csmysql.cs.cf.ac.uk',
+        'NAME': 'root',
+        'USER': 'root',
+        'PASSWORD': 'fella12345',
+        'HOST': '35.195.23.124',
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES', SET GLOBAL max_connections = 100000",
