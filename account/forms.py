@@ -1,4 +1,4 @@
-#adpated from https://simpleisbetterthancomplex.com/tutorial/2017/02/18/how-to-create-user-sign-up-view.html
+
 from django.contrib.auth import login, authenticate
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
@@ -14,4 +14,3 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2','address',
         	'city', 'postcode')
-        

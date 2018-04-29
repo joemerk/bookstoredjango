@@ -24,7 +24,7 @@
             <tr>
                 <td>
                     <a href="{{ book.get_absolute_url }}">
-                        <img src="{% if book.image %}{{ book.image.url }}{% else %}{% static "books/img/no_image.png" %}{% endif %}">
+                        <img src="{% if book.image %}{{ book.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
                     </a>
                 </td>
                 <td>{{ book.title }}</td>

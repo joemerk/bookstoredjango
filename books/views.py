@@ -20,5 +20,6 @@ def book_detail(request, id, slug):
     cart_book_form = CartAddProductForm()
     return render(request,
                   'books/book/detail.html',
-                   {'book': book,
+                  {'book': book,
                   'cart_book_form': cart_book_form})
+
