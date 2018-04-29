@@ -1,7 +1,7 @@
 #adapted from https://github.com/guinslym/django-by-example-book
 from django.db import models
 from django.core.urlresolvers import reverse
-from filebrowser.fields import FileBrowseField
+import storage
 
 class Author(models.Model):
     first_name = models.CharField(max_length = 20)
@@ -31,7 +31,8 @@ class Book(models.Model):
     title = models.CharField(max_length = 100, db_index=True)
     slug = models.SlugField(max_length=100, db_index=True)
     authors = models.ForeignKey(Author)
-    image = models.FileBrowseField("Image", max_length=200, directory="books/", blank=True, null=True)
+   # image = models.ImageField(upload_to='books/', blank=True)
+     image = models.ImageField(max_length=50, storage=OverwriteStorage(), upload_to='books/', blank=True)
     description = models.TextField(blank = True, null = True)
     publication_date = models.DateField()
     price = models.DecimalField(decimal_places=2, max_digits=10)
