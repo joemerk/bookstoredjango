@@ -8,7 +8,7 @@ class Author(models.Model):
     slug = models.SlugField(max_length=30, db_index = True)
 
     class Meta:
-        ordering = ('author',)
+        ordering = ('slug',)
         verbose_name = 'author'
         verbose_name_plural = 'authors'
 
