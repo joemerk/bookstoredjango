@@ -15,7 +15,7 @@ def book_list(request, genre_slug=None):
                                                       'books': books})
 def author_list(request, author_slug=None):
     author = None
-    authors = Author.objects.all();
+    authors = Author.objects.all()
     books = Book.objects.filter(available=True)
     if author_slug:
         author = get_object_or_404(Author, slug=author_slug)
