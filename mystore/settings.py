@@ -119,11 +119,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-MIDDLEWARE_CLASSES = [
+####MIDDLEWARE_CLASSES = [
   # 'django.middleware.security.SecurityMiddleware',
-  'whitenoise.middleware.WhiteNoiseMiddleware',
+ ### 'whitenoise.middleware.WhiteNoiseMiddleware',
   # ...
-]
+####]
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
