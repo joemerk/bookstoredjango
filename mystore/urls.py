@@ -7,9 +7,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^cart/', include('cart.urls', namespace='cart')),
-    url(r'^orders/', include('orders.urls', namespace='orders')),
+    url(r'^order/', include('order.urls', namespace='order')),
     url(r'^', include('books.urls', namespace='books')),
-    url(r'account/', include('account.urls', namespace='account')),
+    url(r'^account/', include('account.urls', namespace='account')),
 ]
 
 if settings.DEBUG:
