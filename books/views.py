@@ -20,7 +20,7 @@ def author_list(request, author_slug=None):
     if author_slug:
         author = get_object_or_404(Author, slug=author_slug)
         books = books.filter(author=author)
-    return render(request, 'books/book/list.html' {'author': author, 'authors': authors, 'books' : books })
+    return render(request, 'books/book/list.html', {'author': author, 'authors': authors, 'books' : books })
 
 def book_detail(request, id, slug):
     book = get_object_or_404(Book, id=id, slug=slug, available=True)
