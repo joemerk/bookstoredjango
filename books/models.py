@@ -1,7 +1,7 @@
 #adapted from https://github.com/guinslym/django-by-example-book
 from django.db import models
 from django.core.urlresolvers import reverse
-import storage
+from storage import *
 
 class Author(models.Model):
     first_name = models.CharField(max_length = 20)
