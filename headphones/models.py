@@ -7,7 +7,7 @@ class Manufacturer(models.Model):
     slug = models.SlugField(max_length=30, db_index = True)
 
     def __str__(self):
-        return '%s %s' % (self.manufacturer_name)
+        return '%s' % (self.manufacturer_name)
 
 class ModelNo(models.Model):
     modelno = models.CharField(max_length = 50)
