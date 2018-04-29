@@ -30,7 +30,7 @@ class Book(models.Model):
     title = models.CharField(max_length = 100, db_index=True)
     slug = models.SlugField(max_length=100, db_index=True)
     authors = models.ForeignKey(Author)
-    image = models.ImageField(upload_to='books/', blank=True)
+    image = models.FileBrowseField("Image", max_length=200, directory="books/", blank=True, null=True)
     description = models.TextField(blank = True, null = True)
     publication_date = models.DateField()
     price = models.DecimalField(decimal_places=2, max_digits=10)
