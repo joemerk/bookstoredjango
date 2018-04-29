@@ -1,30 +1,33 @@
-from django.shortcuts import render_to_response, get_object_or_404, render
-from django.conf import settings
-from django.http import HttpResponse
-from django.contrib.auth.models import User
-from .models import Order, OrderItem
-from .forms import OrderCreateForm
-from cart.cart import Cart
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.http import require_POST
+from books.models import Book
+from .cart import Cart
+from .forms import CartAddProductForm
 
-def order_create(request):
-	cart = Cart(request)
-	if request.user.is_authenticated():
-		user_id = request.user.id
-		current_user_object = User.objects.get(id=user_id)
-		form = OrderCreateForm(request.POST)
-			
-		if form.is_valid():
-			order = form.save(commit=False)
-			order.user = current_user_object
-			order = form.save()
-			for item in cart:
-				OrderItem.objects.create(order=order,
-                                         book=item['book'],
-                                         price=item['price'],
-                                         quantity=item['quantity'])
-			return render (request, 'order/order/created.html',{'order':order})
 
-		else:
-			return render (request, 'order/order/create.html',{'form': form})			
-	else:
-		return render(request, 'order/order/create-login.html')
+@require_POST
+def cart_add(request, book_id):
+    cart = Cart(request)
+    book = get_object_or_404(Book, id=book_id)
+    form = CartAddProductForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(book=book,
+                 quantity=cd['quantity'],
+                 update_quantity=cd['update'])
+    return redirect('cart:cart_detail')
+
+
+def cart_remove(request, book_id):
+    cart = Cart(request)
+    book = get_object_or_404(Book, id=book_id)
+    cart.remove(book)
+    return redirect('cart:cart_detail')
+
+
+def cart_detail(request):
+    cart = Cart(request)
+    for item in cart:
+        item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'],
+                                                                   'update': True})
+    return render(request, 'cart/detail.html', {'cart': cart})
