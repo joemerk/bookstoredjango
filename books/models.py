@@ -7,16 +7,8 @@ class Author(models.Model):
     last_name = models.CharField(max_length = 30)
     slug = models.SlugField(max_length=30, db_index = True)
 
-    class Meta:
-        ordering = ('slug',)
-        verbose_name = 'author'
-        verbose_name_plural = 'authors'
-
     def __str__(self):
         return '%s %s' % (self.first_name, self.last_name)
-
-    def get_absolute_url(self):
-        return reverse('books:book_list_by_author', args=[self.slug])
 
 class Genre(models.Model):
     genre = models.CharField(max_length = 50)
@@ -37,7 +29,7 @@ class Book(models.Model):
     genre = models.ForeignKey(Genre, related_name='books')
     title = models.CharField(max_length = 100, db_index=True)
     slug = models.SlugField(max_length=100, db_index=True)
-    author = models.ForeignKey(Author)
+    authors = models.ForeignKey(Author)
     image = models.ImageField(upload_to='books/', blank=True)
     description = models.TextField(blank = True, null = True)
     publication_date = models.DateField()

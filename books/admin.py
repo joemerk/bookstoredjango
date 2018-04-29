@@ -9,7 +9,7 @@ admin.site.register(Genre, GenreAdmin)
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ['title', 'slug', 'author', 'genre', 'price', 'stock', 'available', 'publication_date']
+    list_display = ['title', 'slug', 'authors', 'genre', 'price', 'stock', 'available', 'publication_date']
     list_filter = ['available', 'publication_date', 'genre']
     list_editable = ['price', 'stock', 'available']
     prepopulated_fields = {'slug': ('title',)}
