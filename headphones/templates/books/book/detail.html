@@ -1,0 +1,26 @@
+{% extends "headphones/base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ headphone.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="headphone-detail">
+        <img src="{% if headphone.image %}{{ headphone.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+        <h1>{{ headphone.name }}</h1>
+        <h2><a href="{{ headphone.modelno.get_absolute_url }}">{{ headphone.modelno }}</a></h2>
+        <p class="price">Price: £{{ headphone.price }}</p>
+        Description: {{ headphone.description|linebreaks }}
+
+        <form action="{% url "cart:cart_add" headphone.id %}" method="post">
+            {{ cart_headphone_form }}
+            {% csrf_token %}
+            <input type="submit" value="Add to cart">
+        </form>
+    </div>
+{% endblock %}
+
+        
+        
+        

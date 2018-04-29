@@ -1,0 +1,38 @@
+{% extends "headphones/base.html" %}
+{% load static %}
+
+{% block title %}
+    {% if modelno %}{{ modelno.modelno }}{% else %}Headphones{% endif %}
+{% endblock %}
+
+{% block content %}
+    <div id="sidebar">
+        <h3>Model Numbers</h3>
+        <ul>
+            <li {% if not modelno %}class="selected"{% endif %}>
+                <a href="{% url "headphones:headphone_list" %}">All</a>
+            </li>
+        {% for m in modelnos %}
+            <li {% if modelno.slug == m.slug %}class="selected"{% endif %}>
+                <a href="{{ m.get_absolute_url }}">{{ m.modelno }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div id="main" class="headphone-list">
+        <h1>{% if modelno %}{{ modelno.modelno }}{% else %}Headphones{% endif %}</h1>
+        {% for headphone in headphones %}
+         
+            <div class="item">
+                
+                <a href="{{ headphone.get_absolute_url }}">
+                    <img src="{% if headphone.image %}{{ headphone.image.url }}{% else %}{% static "headphones/img/no_image.png" %}{% endif %}">
+                </a><br>
+                <a href="{{ headphone.get_absolute_url }}">{{ headphone.name }}</a><br>
+                £{{ headphone.price }}
+                
+            </div>
+         
+        {% endfor %}
+    </div>
+{% endblock %}

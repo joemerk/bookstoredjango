@@ -1,4 +1,4 @@
-{% extends "books/base.html" %}
+{% extends "headphones/base.html" %}
 
 {% block title %}
 Checkout
@@ -12,15 +12,14 @@ Checkout
 	<h3>Your order</h3>
 	<ul>
 		{% for item in cart %}
-		<li>{{ item.quantity }} x {{ item.book.title }} <span>£{{ item.total_price }}</span></li>
+		<li>{{ item.quantity }} x {{ item.headphone.title }} <span>£{{ item.total_price }}</span></li>
 		{% endfor %}
 	</ul>
 	<p>Total: £{{ cart.get_total_price }}</p>
 </div>
 
 <div style="float:left;">
-	<h3>Please <a href="{% url "account:login" %}">log in </a> or <a href="{% url "account:signup" %}">register </a> to complete your order.</h3>    
-
+	<h3>Please <a href="{% url "account:login" %}">Log in</a> or <a href="{% url "account:signup" %}">Sign up</a> to complete your order.</h3>    
 </div>
 
 {% endblock %}

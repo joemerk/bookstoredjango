@@ -1,17 +1,17 @@
-{% extends "books/base.html" %}
+{% extends "headphones/base.html" %}
 {% load static %}
 
 {% block title %}
-    Your shopping cart
+    Your shopping cart!
 {% endblock %}
 
 {% block content %}
-    <h1>Your shopping cart</h1>
+    <h1>Your shopping cart!</h1>
     <table class="cart">
         <thead>
             <tr>
                 <th>Image</th>
-                <th>Book</th>
+                <th>Headphone</th>
                 <th>Quantity</th>
                 <th>Remove</th>
                 <th>Unit price</th>                
@@ -20,23 +20,23 @@
         </thead>
         <tbody>
         {% for item in cart %}
-            {% with book=item.book %}
+            {% with headphone=item.headphone %}
             <tr>
                 <td>
-                    <a href="{{ book.get_absolute_url }}">
-                        <img src="{% if book.image %}{{ book.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                    <a href="{{ headphone.get_absolute_url }}">
+                        <img src="{% if headphone.image %}{{ headphone.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
                     </a>
                 </td>
-                <td>{{ book.title }}</td>
+                <td>{{ headphone.name }}</td>
                 <td>
-                    <form action="{% url "cart:cart_add" book.id %}" method="post">
+                    <form action="{% url "cart:cart_add" headphone.id %}" method="post">
                         {{ item.update_quantity_form.quantity }}
                         {{ item.update_quantity_form.update }}
                         <input type="submit" value="Update">
                         {% csrf_token %}
                     </form>
                 </td>
-                <td><a href="{% url "cart:cart_remove" book.id %}">Remove</a></td>
+                <td><a href="{% url "cart:cart_remove" headphone.id %}">Remove</a></td>
                 <td class="num">£{{ item.price }}</td>
                 <td class="num">£{{ item.total_price }}</td>
             </tr>
@@ -50,7 +50,7 @@
         </tbody>
     </table>
     <p class="text-right">
-        <a href="{% url "books:book_list" %}" class="button light">Continue shopping</a>
+        <a href="{% url "headphones:headphone_list" %}" class="button light">Continue shopping...</a>
         <a href="{% url "order:order_create" %}" class="button">Checkout</a>
     </p>
 {% endblock %}
