@@ -7,6 +7,11 @@ class Author(models.Model):
     last_name = models.CharField(max_length = 30)
     slug = models.SlugField(max_length=30, db_index = True)
 
+    class Meta:
+        ordering = ('author',)
+        verbose_name = 'author'
+        verbose_name_plural = 'authors'
+
     def __str__(self):
         return '%s %s' % (self.first_name, self.last_name)
 
