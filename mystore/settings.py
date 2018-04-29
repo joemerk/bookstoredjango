@@ -95,7 +95,7 @@ DATABASES = {
         'HOST': '35.195.23.124',
         'PORT': '3306',
         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES', SET GLOBAL max_connections = 100000",
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
     }
 }
