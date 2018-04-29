@@ -22,6 +22,9 @@ Checkout
     <h3>Your order will be delivered to:</h3>
 
     <p>{{ user.first_name }} {{ user.last_name }}</p>
+    <p>{{ user.profile.address }}</p>
+    <p>{{ user.profile.city }},</p> 
+    <p>{{ user.profile.postcode }} </p>
 
     <h3>Payment details:</n3>
         <form action="." method="post">
