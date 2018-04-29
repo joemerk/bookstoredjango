@@ -9,23 +9,23 @@ class Manufacturer(models.Model):
     def __str__(self):
         return '%s' % (self.manufacturer_name)
 
-class ModelNo(models.Model):
-    modelno = models.CharField(max_length = 50)
+class Category(models.Model):
+    category = models.CharField(max_length = 50)
     slug = models.SlugField(max_length = 50, db_index = True, unique = True)
 
     class Meta:
-        ordering = ('modelno',)
-        verbose_name = 'modelno'
-        verbose_name_plural = 'modelnos'
+        ordering = ('category',)
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
 
     def __str__(self):
-		return self.modelno
+		return self.category
 
     def get_absolute_url(self):
-        return reverse('headphones:headphone_list_by_modelno', args=[self.slug])
+        return reverse('headphones:headphone_list_by_category', args=[self.slug])
 
 class Headphone(models.Model):
-    modelno = models.ForeignKey(ModelNo, related_name='headphones')
+    category = models.ForeignKey(Category, related_name='headphones')
     name = models.CharField(max_length = 100, db_index=True)
     slug = models.SlugField(max_length=100, db_index=True)
     manufacturers = models.ForeignKey(Manufacturer)

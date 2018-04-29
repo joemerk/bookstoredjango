@@ -1,17 +1,17 @@
 from django.shortcuts import render, get_object_or_404
-from .models import ModelNo, Headphone
+from .models import Category, Headphone
 from cart.forms import CartAddProductForm
 
 
-def headphone_list(request, modelno_slug=None):
-    modelno = None
-    modelnos = ModelNo.objects.all()
+def headphone_list(request, category_slug=None):
+    category = None
+    categories = Category.objects.all()
     headphones = Headphone.objects.filter(available=True)
-    if modelno_slug:
-        modelno = get_object_or_404(ModelNo, slug=modelno_slug)
-        headphones = headphones.filter(modelno=modelno)
-    return render(request, 'headphones/headphone/list.html', {'modelno': modelno,
-                                                      'modelnos': modelnos,
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        headphones = headphones.filter(category=category)
+    return render(request, 'headphones/headphone/list.html', {'category': category,
+                                                      'category': category,
                                                       'headphones': headphones})
 
 

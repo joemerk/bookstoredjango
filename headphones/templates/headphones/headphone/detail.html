@@ -9,7 +9,7 @@
     <div class="headphone-detail">
         <img src="{% if headphone.image %}{{ headphone.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
         <h1>{{ headphone.name }}</h1>
-        <h2><a href="{{ headphone.modelno.get_absolute_url }}">{{ headphone.modelno }}</a></h2>
+        <h2><a href="{{ headphone.category.get_absolute_url }}">{{ headphone.category }}</a></h2>
         <p class="price">Price: £{{ headphone.price }}</p>
         Description: {{ headphone.description|linebreaks }}
 
