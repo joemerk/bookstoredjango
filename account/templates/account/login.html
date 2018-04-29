@@ -1,0 +1,17 @@
+{% extends 'books/base.html' %}
+
+{% block content %}
+  	<h1>Welcome Guest!</h1>
+  	<p>
+  		Log in HERE :)
+  	</p>
+   	<h2>Login</h2>
+   	<form method="post">
+   		{% csrf_token %}
+   		{{ form.as_p }}
+   		<input type="submit" value="Login">
+
+   	</form>
+
+
+{% endblock %}

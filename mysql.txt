@@ -1,0 +1,4 @@
+  Username: userUAL
+       Password: lOWbnUtGlsrTUIWN
+  Database Name: sampledb
+ Connection URL: mysql://mysql:3306/
