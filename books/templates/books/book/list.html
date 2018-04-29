@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    {% if genre %}{{ genre.name }}{% else %}Books For Sale{% endif %}
+    {% if genre %}{{ genre.genre }}{% else %}Books{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -12,24 +12,27 @@
             <li {% if not genre %}class="selected"{% endif %}>
                 <a href="{% url "books:book_list" %}">All</a>
             </li>
-        {% for c in genres %}
-            <li {% if genre.slug == c.slug %}class="selected"{% endif %}>
-                <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+        {% for g in genres %}
+            <li {% if genre.slug == g.slug %}class="selected"{% endif %}>
+                <a href="{{ g.get_absolute_url }}">{{ g.genre }}</a>
             </li>
         {% endfor %}
         </ul>
     </div>
-
-    <div id="main" class="product-list">
-        <h1>{% if genre %}{{ genre.genre }}{% else %}All{% endif %}</h1>
+    <div id="main" class="book-list">
+        <h1>{% if genre %}{{ genre.genre }}{% else %}Books{% endif %}</h1>
         {% for book in books %}
+         
             <div class="item">
+                
                 <a href="{{ book.get_absolute_url }}">
-                    <img src="{% if book.image %}{{ book.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
-                </a>
-                <a href="{{ book.get_absolute_url }}">{{ book.name }}</a><br>
+                    <img src="{% if book.image %}{{ book.image.url }}{% else %}{% static "books/img/no_image.png" %}{% endif %}">
+                </a><br>
+                <a href="{{ book.get_absolute_url }}">{{ book.title }}</a><br>
                 £{{ book.price }}
+                
             </div>
+         
         {% endfor %}
     </div>
 {% endblock %}
