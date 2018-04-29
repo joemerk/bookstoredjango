@@ -37,7 +37,7 @@ class Book(models.Model):
     genre = models.ForeignKey(Genre, related_name='books')
     title = models.CharField(max_length = 100, db_index=True)
     slug = models.SlugField(max_length=100, db_index=True)
-    authors = models.ForeignKey(Author)
+    author = models.ForeignKey(Author)
     image = models.ImageField(upload_to='books/', blank=True)
     description = models.TextField(blank = True, null = True)
     publication_date = models.DateField()
