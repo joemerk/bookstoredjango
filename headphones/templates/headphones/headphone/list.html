@@ -20,7 +20,7 @@
         </ul>
     </div>
     <div id="main" class="product-list">
-        <h1>{% if category %}{{ category.category }}{% else %}Headphones{% endif %}</h1>
+        <h1>{% if category %}{{ category.category }}{% else %}All Headphones{% endif %}</h1>
         {% for headphone in headphones %}
             <div class="item">  
                 <a href="{{ headphone.get_absolute_url }}">
