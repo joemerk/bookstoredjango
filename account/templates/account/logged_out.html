@@ -3,6 +3,7 @@
 {% block content %}
 <p>You are logged out!</p>
 
-<p><a href="{% url 'account:login'%}">Click here to log in again.</a></p>
+<meta http-equiv="refresh" content="3;url={% url "headphones:headphone_list" %}" />
+<p><a href="/"> Click here to return to the home page if you are not redirected automatically.</a></p>
 
 {% endblock %}
