@@ -11,7 +11,7 @@ def headphone_list(request, category_slug=None):
         category = get_object_or_404(Category, slug=category_slug)
         headphones = headphones.filter(category=category)
     return render(request, 'headphones/headphone/list.html', {'category': category,
-                                                      'category': category,
+                                                      'categories': categories,
                                                       'headphones': headphones})
 
 
