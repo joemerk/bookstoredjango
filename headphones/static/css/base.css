@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5 , h6 {
 
 a {
     text-decoration:none;
-    color:#5993bb;
+    color:#7F0100;
 }
 
 .imagemod {
@@ -31,7 +31,7 @@ a:hover {
 
 a.button, input[type="submit"] {
     color:#fff;
-    background:#5993bb;
+    background:#7F0100;
     border-radius:4px;
     padding:10px 20px;
     font-size:14px;
@@ -250,7 +250,7 @@ ul.errorlist {
     background:#efefef;
     padding:10px 20px;
     color:#333;
-    border-bottom:4px solid #5993bb;
+    border-bottom:4px solid #7F0100;
 }
 
 .order-info h3 {
