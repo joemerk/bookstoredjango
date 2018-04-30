@@ -6,10 +6,10 @@ from headphones.models import Headphone
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
-    card_number = models.CharField(max_length=16)
-    cardholder_name = models.CharField(max_length=30)
-    expiry_date = models.CharField(max_length=7)
-    CVV_code = models.CharField(max_length=3)
+    card_number = models.CharField(max_length=16, help_text="A unique title for this thing")
+    cardholder_name = models.CharField(max_length=30, help_text="A unique title for this thing")
+    expiry_date = models.CharField(max_length=7, help_text="A unique title for this thing")
+    CVV_code = models.CharField(max_length=3, help_text="A unique title for this thing")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
