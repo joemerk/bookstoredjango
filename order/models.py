@@ -10,8 +10,8 @@ class Order(models.Model):
     cardholder_name = models.CharField(max_length=30, help_text="A unique title for this thing")
     expiry_date = models.CharField(max_length=7, help_text="A unique title for this thing")
     CVV_code = models.CharField(max_length=3, help_text="A unique title for this thing")
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, help_text="A unique title for this thing")
+    updated = models.DateTimeField(auto_now=True, help_text="A unique title for this thing")
     paid = models.BooleanField(default=False)
 
     class Meta:
