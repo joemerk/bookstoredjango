@@ -6,12 +6,12 @@ from headphones.models import Headphone
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
-    card_number = models.CharField(max_length=16, help_text="A unique title for this thing")
-    cardholder_name = models.CharField(max_length=30, help_text="A unique title for this thing")
-    expiry_date = models.CharField(max_length=7, help_text="A unique title for this thing")
-    CVV_code = models.CharField(max_length=3, help_text="A unique title for this thing")
-    created = models.DateTimeField(auto_now_add=True, help_text="A unique title for this thing")
-    updated = models.DateTimeField(auto_now=True, help_text="A unique title for this thing")
+    card_number = models.CharField(max_length=16, help_text="Please enter the 16 digit number on the front of your card")
+    cardholder_name = models.CharField(max_length=30, help_text="Please enter your name displayed on your card")
+    expiry_date = models.CharField(max_length=7, help_text="Please enter the expiry date on your card")
+    CVV_code = models.CharField(max_length=3, help_text="Please enter the 3 digit expiry code on the rear of your card.")
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
 
     class Meta:
