@@ -86,6 +86,10 @@ table.cart img {
     width:180px;
 }
 
+table.cart thead {
+    background: #7F0100;
+}
+
 tbody td.num {
     text-align:right;
 }
