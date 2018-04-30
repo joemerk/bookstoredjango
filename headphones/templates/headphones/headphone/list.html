@@ -19,14 +19,14 @@
         {% endfor %}
         </ul>
     </div>
-    <div id="main" class="headphone-list">
+    <div id="main" class="product-list">
         <h1>{% if category %}{{ category.category }}{% else %}Headphones{% endif %}</h1>
         {% for headphone in headphones %}
          
             <div class="item">
                 
                 <a href="{{ headphone.get_absolute_url }}">
-                    <img src="{% if headphone.image %}{{ headphone.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                    <img class="imagemod" src="{% if headphone.image %}{{ headphone.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
                 </a><br>
                 <a href="{{ headphone.get_absolute_url }}">{{ headphone.name }}</a><br>
                 £{{ headphone.price }}

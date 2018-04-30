@@ -17,6 +17,14 @@ a {
     color:#5993bb;
 }
 
+.imagemod {
+  max-width:200px;
+  max-height:200px;
+  width: auto;
+  height: auto;
+}
+
+.headphone-detail 
 a:hover {
     color:#77b6e2;
 }
@@ -171,7 +179,7 @@ ul.errorlist {
 }
 
 #sidebar ul li.selected {
-    background:#5993bb;
+    background:#7F0100;
     border-radius:4px;
 }
 
@@ -187,6 +195,7 @@ ul.errorlist {
 }
 
 .product-list .item {
+    display: inline;
     width:25%;
     padding:10px 20px 10px 0;
     float:left;
@@ -194,7 +203,15 @@ ul.errorlist {
     line-height:1.2;
 }
 
+.product-list .item img:hover {
+     opacity: 0.3
+}
+
+
 .product-list .item img {
+    opacity: 1;
+    transition: .5s ease;
+    display: inline;
     width:100%;
     margin-bottom:8px;
 }

@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="headphone-detail">
-        <img src="{% if headphone.image %}{{ headphone.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+    <div class="product-detail">
+        <img class="imagemod" src="{% if headphone.image %}{{ headphone.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
         <h1>{{ headphone.name }}</h1>
         <h2><a href="{{ headphone.category.get_absolute_url }}">{{ headphone.category }}</a></h2>
         <p class="price">Price: £{{ headphone.price }}</p>
